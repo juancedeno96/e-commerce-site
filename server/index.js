@@ -1,10 +1,16 @@
 require("dotenv").config();
 const massive = require("massive");
 const express = require("express");
+const bodyParser = require("body-parser");
+const stripe = require("stripe")(
+  "sk_test_51IsBidK0LrulUWXA2V1lW4yRQivNOltaaOohQjPtv5xKH56tfXKUZ0MjTkofwGedBxXsxW7DM3dDytPP4fM3omZ100muCJuCHi"
+);
 const { PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 const app = express();
 
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 massive({
   connectionString: CONNECTION_STRING,
