@@ -1,7 +1,11 @@
 require("dotenv").config();
 const massive = require("massive");
 const express = require("express");
+const session =require('express-session')
 const bodyParser = require("body-parser");
+//Controllers
+const authCtrl = require('./controllers/authController')
+//Stripe
 const stripe = require("stripe")(
   "sk_test_51IsBidK0LrulUWXA2V1lW4yRQivNOltaaOohQjPtv5xKH56tfXKUZ0MjTkofwGedBxXsxW7DM3dDytPP4fM3omZ100muCJuCHi"
 );
@@ -21,12 +25,22 @@ massive({
   app.listen(PORT, () => console.log(`running on port ${PORT}`));
 });
 
+//Session
+app.use(
+  session({
+    resave: false,
+    saveUninitialized: true,
+    secret: SESSION_SECRET,
+    cookie: { maxAge: 1000 * 60 * 60 * 24 * 365 },
+  })
+);
+
 //Stripe
 app.post("/pay", async (req, res) => {
-  const { email } = req.body;
+  const { email, amount} = req.body;
 
   const paymentIntent = await stripe.paymentIntents.create({
-    amount: 5000,
+    amount: amount,
     currency: "usd",
     // Verify your integration in this guide by including this parameter
     metadata: { integration_check: "accept_a_payment" },
@@ -35,3 +49,10 @@ app.post("/pay", async (req, res) => {
 
   res.json({ client_secret: paymentIntent["client_secret"] });
 });
+
+
+//Auth Endpoints
+app.post("/api/register", authCtrl.register);
+app.post('/api/login', authCtrl.login)
+app.get('/api/me', authCtrl.getUser)
+app.post('/api/logout', authCtrl.logout)
