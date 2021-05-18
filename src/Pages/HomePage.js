@@ -37,6 +37,7 @@ function HomePage() {
   const classes = useStyles();
   // State
   const [email, setEmail] = useState('');
+  const [amount, setAmount] = useState(50)
 
   const stripe = useStripe();
   const elements = useElements();
@@ -48,7 +49,7 @@ function HomePage() {
       return;
     }
 
-    const res = await axios.post('http://localhost:4001/pay', {email: email});
+    const res = await axios.post('http://localhost:4001/pay', {amount: amount, email: email});
 
     const clientSecret = res.data['client_secret'];
 
