@@ -5,6 +5,7 @@ const session =require('express-session')
 const bodyParser = require("body-parser");
 //Controllers
 const authCtrl = require('./controllers/authController')
+const pc = require('./controllers/productController')
 //Stripe
 const stripe = require("stripe")(
   "sk_test_51IsBidK0LrulUWXA2V1lW4yRQivNOltaaOohQjPtv5xKH56tfXKUZ0MjTkofwGedBxXsxW7DM3dDytPP4fM3omZ100muCJuCHi"
@@ -56,3 +57,6 @@ app.post("/api/register", authCtrl.register);
 app.post('/api/login', authCtrl.login)
 app.get('/api/me', authCtrl.getUser)
 app.post('/api/logout', authCtrl.logout)
+
+//Product Endpoints
+app.get('/api/product', pc.getProduct)
