@@ -33,7 +33,7 @@ const useStyles = makeStyles({
   },
 });
 
-function HomePage() {
+function CheckoutPage() {
   const classes = useStyles();
   // State
   const [email, setEmail] = useState('');
@@ -107,4 +107,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default CheckoutPage;
