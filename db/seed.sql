@@ -1,5 +1,5 @@
 CREATE TABLE users (
-    users_id SERIAL PRIMARY KEY,
+    user_id SERIAL PRIMARY KEY,
     first_name,
     varchar(255) not null,
     last_name,
@@ -21,7 +21,10 @@ insert into product (product_name, unit_price, img_url)
 values ($1, $2, $3)                                        
 select * from product
 
-CREATE TABLE order_item (
-
-
+create table order_item (
+    order_id serial primary key,
+    total numeric,
+    users_id int references users(users_id),
+    product_id int references product(product_id),
+    quantity int
 )
