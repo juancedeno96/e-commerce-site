@@ -61,4 +61,6 @@ app.post('/api/logout', authCtrl.logout)
 //Product Endpoints
 app.get('/api/product', pc.getProduct)
 app.post('/api/add/:product_id', pc.addOrder)
+app.get('/api/cart/:user_id', pc.getUserItems)
+
 
