@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { updateUser } from "../redux/userReducer";
 import { getAllProduct } from "../redux/productReducer";
 import { addToCart } from "../redux/cartReducer";
-import {Link} from 'react-router-dom'
 
 const ProductItem = (props) => {
   const [total, setTotal] = useState(0);
@@ -36,6 +35,7 @@ const ProductItem = (props) => {
     axios.post(`/api/add/${product_id}`, { total, user_id, quantity })
     .then(res=>{
       props.addToCart(res.data)
+      props.history.push("/home");
     })
     .catch(err=>console.log(err))
 }
@@ -54,10 +54,10 @@ const ProductItem = (props) => {
               />
               <p className="product-name">{item.product_name}</p>
               <p className="price">${item.unit_price}</p>
-             <Link to='/home'>
+           
              <button onClick={(e)=>{
             addToCart(item.product_id)}}>add to cart</button>
-             </Link> 
+            
              
             <input type="number" min="1" max="10" onChange={(e)=>{handleChange(+e.target.value, item.unit_price)}}
            />
