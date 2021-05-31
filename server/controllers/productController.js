@@ -24,4 +24,25 @@ module.exports = {
     let items = await db.order.get_items_by_user_id(user_id);
     return res.status(200).send(items);
   },
+
+  deleteItem: (req, res) => {
+    const { product_id } = req.params;
+    const db = req.app.get("db");
+    const updatedCart = db.order.delete_items(product_id);
+    return res.status(200).send(updatedCart);
+  },
+
+  getTotal: async (req, res) => {
+    const { user_id } = req.params;
+    const db = req.app.get("db");
+    const total = await db.order.get_grand_total(user_id);
+    return res.status(200).send(total);
+  },
+
+  deleteOrder: (req, res) => {
+    const { user_id } = req.params;
+    const db = req.app.get("db");
+    const finalOrder = db.order.delete_completed_order(user_id);
+    return res.status(200).send(finalOrder);
+  },
 };
