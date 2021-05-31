@@ -1,0 +1,1 @@
+select sum(total) as cost, sum(quantity) as quantity from order_item where user_id=$1
