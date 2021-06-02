@@ -44,7 +44,7 @@ const CheckoutPage = (props) => {
   const [userCart, setUserCart] = useState([]);
   const [email, setEmail] = useState(props.email);
   const [userTotal, setUserTotal] = useState([]);
-  const [amount, setAmount] = useState();
+  const [amount, setAmount] = useState(0);
 
   useEffect(() => {
     getUserItems();
@@ -118,10 +118,10 @@ const CheckoutPage = (props) => {
 console.log(amount)
   return (
     <div>
-      {userTotal.map((tot) => {
+      {userTotal.map((tot, i) => {
         return (
 
-          <Card className={classes.root}  >
+          <Card className={classes.root} key={i} >
             Total Cost: ${tot.cost}.00
             <CardContent className={classes.content}>
               <TextField
