@@ -67,6 +67,8 @@ const CheckoutPage = (props) => {
       .get(`/api/total/${user_id}`)
       .then((res) => {
         setUserTotal(res.data);
+        setAmount(res.data[0].cost*100)
+
         
       })
       .catch((err) => console.log(err));
@@ -113,7 +115,7 @@ const CheckoutPage = (props) => {
     }
   };
 
-console.log(props)
+console.log(amount)
   return (
     <div>
       {userTotal.map((tot) => {
