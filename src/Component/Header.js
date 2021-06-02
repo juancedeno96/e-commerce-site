@@ -36,7 +36,7 @@ const Header = (props) => {
     props.location.pathname !== "/" && (
       <header className="header">
         <Link to="/home" style={{ textDecoration: "none" }}>
-          <h1 style={{ color: "white" }}>Ecuadorian Cuisine</h1>
+          <h1 style={{ color: "#292F36" }}>Ecuadorian Cuisine</h1>
         </Link>
 
         <nav className="nav-bar">
@@ -49,7 +49,7 @@ const Header = (props) => {
               </Link> */}
 
           <Link to="/cart" style={{ textDecoration: "none" }}>
-            {/* <span><img src={cart}/></span> */}Cart{" "}
+            <span>Cart</span>{" "}
           </Link>
 
           <Link

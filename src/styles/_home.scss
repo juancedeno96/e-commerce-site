@@ -1,0 +1,36 @@
+@import "./variables";
+
+.HomePage {
+  height: 100vh;
+  width: 100vw;
+  background-color: $bittersweet;
+
+  .ProductItem{
+      position: relative;
+      width: 80%;
+      height: 80%;
+      margin: auto;
+      top: 20%;
+      background-color: white;
+      &:not(:last-child){
+        margin-top: 5%;
+        margin-left: 5%;
+    }
+      .product-container{
+          width: 18rem;
+          height: 15rem;
+          border-style: solid;
+          
+        .mapped-product{
+            width: 50%;
+            height: 50%;
+            margin: auto;
+             img{
+                width: 50%;
+                height: 50%;
+            }
+        }
+      }
+      
+  }
+}
