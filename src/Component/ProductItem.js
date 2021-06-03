@@ -53,12 +53,11 @@ const ProductItem = (props) => {
                 className="product-img"
               />
               <p className="product-name">{item.product_name}</p>
-              <p className="price">${item.unit_price}</p>
+              <p className="price">${item.unit_price}.00</p>
            
              <button onClick={(e)=>{
             addToCart(item.product_id)}}>add to cart</button>
-            
-             
+          
             <input type="number" min="1" max="10" onChange={(e)=>{handleChange(+e.target.value, item.unit_price)}}
            />
             </div>

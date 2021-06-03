@@ -5,3 +5,27 @@
   text-align: center;
 color: #292F36;
 }
+
+input {
+  height: 30px;
+  width: 200px;
+  background: rgba(255, 255, 255, 0.685);
+  border: 2px, black;
+  margin-bottom: 20px;
+  font-size: 16px;
+  outline: none;
+}
+
+button {
+  
+  background: rgba(255, 255, 255, 0.685);
+  border: 2px, black;
+  outline: none;
+  font-size: 16px;
+  border-radius: 10px;
+} 
+
+button:hover {
+  background-color: $gunmetal;
+  color: white;
+}
