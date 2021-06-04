@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { updateUser } from "../redux/userReducer";
+import logo from '../Flag-map_of_Ecuador.svg'
 
 const AuthPage = (props) => {
   const [first_name, setFirstName] = useState("");
@@ -53,6 +54,10 @@ const AuthPage = (props) => {
 
   return (
     <div className='auth-main'>
+      <section className='auth-container'>
+      <h1>Welcome to Ecuadorian Food App!
+          <img src={logo}/>
+           </h1>
       {registerView ? (
           <>
             <h3>Register Below</h3>
@@ -111,7 +116,7 @@ const AuthPage = (props) => {
         <span onClick={(e) => handleToggle(e)}>Register Here</span>
           </>
         )}
-       
+       </section>
     </div>
   );
 };
