@@ -3,7 +3,9 @@
 .HomePage {
   height: 100vh;
   width: 100vw;
-  background-color: $bittersweet;
+  // background-color: $bittersweet;
+  background-image: linear-gradient(#4ecdc4, #ff6b6b);
+
 
   .ProductItem {
     position: relative;
@@ -16,9 +18,11 @@
     justify-content: space-between;
 
     .product-container {
+    background-color: white;
+
       position: relative;
-      width: 22rem;
-      height: 24rem;
+      width: 90%;
+      height: 80%;
       box-shadow: 2px 2px 2px rgba(128, 128, 128, 0.637);
       top: 5%;
       left: 5%;
@@ -27,11 +31,13 @@
 
       .mapped-product {
         margin: auto;
-        width: 95%;
+        width: 90%;
         height: 95%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+    background-color: $gunmetal;
+
         align-items: center;
         img {
           padding: 5% 0;
