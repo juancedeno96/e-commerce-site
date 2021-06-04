@@ -13,7 +13,7 @@ const ProductItem = (props) => {
 
   useEffect(() => {
     getProduct();
-  }, []);
+  }, [props]);
 
   const handleChange = (value, unit_price) => {
     setQuantity(value);
@@ -35,7 +35,9 @@ const ProductItem = (props) => {
     axios.post(`/api/add/${product_id}`, { total, user_id, quantity })
     .then(res=>{
       props.addToCart(res.data)
-      props.history.push("/home");
+      setQuantity(0);
+      props.history.push('/home')
+
     })
     .catch(err=>console.log(err))
 }
@@ -58,7 +60,7 @@ const ProductItem = (props) => {
              <button onClick={(e)=>{
             addToCart(item.product_id)}}>add to cart</button>
           
-            <input type="number" min="1" max="10" onChange={(e)=>{handleChange(+e.target.value, item.unit_price)}}
+            <input value={quantity} type="number" min="1" max="10" onChange={(e)=>{handleChange(+e.target.value, item.unit_price)}}
            />
             </div>
           );
