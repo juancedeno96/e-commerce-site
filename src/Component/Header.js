@@ -12,19 +12,6 @@ const Header = (props) => {
     setDropView(!dropView);
   };
 
-  useEffect(() => {
-    getUser();
-  }, [props]);
-
-  const getUser = () => {
-    axios
-      .get("/api/me")
-      .then((res) => {
-        props.updateUser(res.data);
-      })
-      .catch((err) => console.log(err));
-  };
-
   const logoutUser = () => {
     axios
       .post("/api/logout")
@@ -36,7 +23,7 @@ const Header = (props) => {
     props.location.pathname !== "/" && (
       <header className="header">
         <Link to="/home" style={{ textDecoration: "none" }}>
-          <h1 style={{ color: "#292F36" }}>Ecuadorian Cuisine</h1>
+          <h1 style={{ color: "white" }}>Ecuadorian Cuisine</h1>
         </Link>
 
         <nav className="nav-bar">
