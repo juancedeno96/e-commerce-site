@@ -5,7 +5,6 @@ import ProductItem from "../Component/ProductItem";
 import '../styles/_home.scss';
 
 const HomePage = (props) => {
-  console.log(props);
   return (
     <div className="HomePage">
       <ProductItem />

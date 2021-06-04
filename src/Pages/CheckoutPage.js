@@ -115,7 +115,6 @@ const CheckoutPage = (props) => {
     }
   };
 
-console.log(amount)
   return (
     <div>
       {userTotal.map((tot, i) => {
