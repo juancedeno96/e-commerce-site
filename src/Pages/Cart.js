@@ -34,6 +34,8 @@ const Cart = (props) => {
         <img src={item.img_url} alt={item.product_name} />
         <h3>X {item.quantity}</h3>
         <h3>total: {item.total}.00</h3>
+        <Link to ='/cart'
+        ><button onClick={()=>deleteItems(item.product_id)}>Delete</button></Link>
       </div>
     )
   })
