@@ -18,7 +18,7 @@ CREATE TABLE product (
 )
 
 insert into product (product_name, unit_price, img_url)
-values ($1, $2, $3)                                        
+values ($1, $2, $3);                                       
 select * from product
 
 create table order_item (
