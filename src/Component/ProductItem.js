@@ -13,7 +13,7 @@ const ProductItem = (props) => {
 
   useEffect(() => {
     getProduct();
-  }, [props]);
+  }, []);
 
   const handleChange = (value, unit_price) => {
     setQuantity(value);

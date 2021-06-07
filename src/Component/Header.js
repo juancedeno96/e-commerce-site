@@ -47,15 +47,13 @@ const Header = (props) => {
             <span>Logout</span>
           </Link>
         </nav>
-        {/* <span className="dropdown-btn"  onClick={toggleDropdown}><img src={menu} alt='menu button'/></span> */}
+        <h1 className="dropdown-btn"  onClick={toggleDropdown} style={{color: 'white'}}>Menu</h1>
 
         {dropView ? (
           <nav className="mobile-menu">
-            {/* <Link to="/profile" style={{ textDecoration: 'none' }}>
-                <span>Profile</span>
-              </Link> */}
+          
             <Link to="/cart" style={{ textDecoration: "none" }}>
-              {/* <span><img src={cart}/></span> */}
+              <span>Cart</span>
             </Link>
             <Link to="/" style={{ textDecoration: "none" }}>
               <span onClick={logoutUser}>Logout</span>
