@@ -7,12 +7,15 @@ import { addToCart } from "../redux/cartReducer";
 
 const ProductItem = (props) => {
   const [total, setTotal] = useState(0);
+  // eslint-disable-next-line
   const [user_id, setUserId] = useState(props.userReducer.user_id);
-  const [quantity, setQuantity] = useState(0);
-  const [cart, setCart] = useState([]);
+  const [quantity, setQuantity] = useState(1);
+  // eslint-disable-next-line
+  // const [cart, setCart] = useState([]);
 
   useEffect(() => {
     getProduct();
+    // eslint-disable-next-line
   }, []);
 
   const handleChange = (value, unit_price) => {
@@ -60,7 +63,7 @@ const ProductItem = (props) => {
              <button onClick={(e)=>{
             addToCart(item.product_id)}}>add to cart</button>
           
-            <input value={quantity} type="number" min="1" max="10" onChange={(e)=>{handleChange(+e.target.value, item.unit_price)}}
+            <input  type="number" min="1" max="5" onChange={(e)=>{handleChange(+e.target.value, item.unit_price)}}
            />
             </div>
           );

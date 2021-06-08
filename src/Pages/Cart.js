@@ -8,6 +8,7 @@ const Cart = (props) => {
   const [userCart, setUserCart] = useState([]);
   useEffect(() => {
     getUserItems();
+    // eslint-disable-next-line
   }, [props]);
 
   //Get Cart Items function

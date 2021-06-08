@@ -56,7 +56,7 @@ const AuthPage = (props) => {
     <div className='auth-main'>
       <section className='auth-container'>
       <h1>Welcome to Ecuadorian Food App!
-          <img src={logo}/>
+          <img src={logo} alt='ecuador flag logo'/>
            </h1>
       {registerView ? (
           <>

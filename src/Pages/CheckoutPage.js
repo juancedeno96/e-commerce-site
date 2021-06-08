@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+// eslint-disable-next-line
 import { Link, withRouter } from "react-router-dom";
 
 // MUI Components
@@ -41,25 +42,26 @@ const useStyles = makeStyles({
 const CheckoutPage = (props) => {
   const classes = useStyles();
   // State
-  const [userCart, setUserCart] = useState([]);
+  // const [userCart, setUserCart] = useState([]);
   const [email, setEmail] = useState(props.email);
   const [userTotal, setUserTotal] = useState([]);
   const [amount, setAmount] = useState(0);
 
   useEffect(() => {
-    getUserItems();
+    // getUserItems();
     getTotal();
+    // eslint-disable-next-line
   }, [props]);
 
-  const getUserItems = () => {
-    const user_id = props.user_id;
-    axios
-      .get(`/api/cart/${user_id}`)
-      .then((res) => {
-        setUserCart(res.data);
-      })
-      .catch((err) => console.log(err));
-  };
+  // const getUserItems = () => {
+  //   const user_id = props.user_id;
+  //   axios
+  //     .get(`/api/cart/${user_id}`)
+  //     .then((res) => {
+  //       setUserCart(res.data);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
   const getTotal = () => {
     const user_id = props.user_id;
