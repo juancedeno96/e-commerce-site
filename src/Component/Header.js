@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateUser, logoutUser } from "../redux/userReducer";
@@ -31,10 +30,6 @@ const Header = (props) => {
             <span>Home</span>{" "}
           </Link>
 
-          {/* <Link to="/contact" style={{ textDecoration: 'none' }}>
-                <span>Contact</span>{" "}
-              </Link> */}
-
           <Link to="/cart" style={{ textDecoration: "none" }}>
             <span>Cart</span>{" "}
           </Link>
@@ -47,16 +42,24 @@ const Header = (props) => {
             <span>Logout</span>
           </Link>
         </nav>
-        <h1 className="dropdown-btn"  onClick={toggleDropdown} style={{color: 'white'}}>Menu</h1>
+        <div
+          className="dropdown-btn"
+          onClick={toggleDropdown}
+        >
+          <div className="lines-1"></div>
+          <div className="lines-2"></div>
+          <div className="lines-3"></div>
+        </div>
 
         {dropView ? (
           <nav className="mobile-menu">
-          
-            <Link to="/cart" style={{ textDecoration: "none" }}>
-              <span>Cart</span>
+            <Link to="/home" style={{ textDecoration: "none" }}>
+              <span><h1>Home</h1></span>
+            </Link> <Link to="/cart" style={{ textDecoration: "none" }}>
+              <span><h1>Cart</h1></span>
             </Link>
             <Link to="/" style={{ textDecoration: "none" }}>
-              <span onClick={logoutUser}>Logout</span>
+              <span onClick={logoutUser}><h1>Logout</h1></span>
             </Link>
           </nav>
         ) : null}

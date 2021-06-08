@@ -48,28 +48,45 @@
     .nav-bar {
       display: none;
     }
-    .dropdown-btn h1 {
+    .dropdown-btn {
       display: initial;
       position: fixed;
+      z-index: 10;
       right: 5%;
+      top: 7%;
       color: white;
+      .lines-1,
+      .lines-2,
+      .lines-3 {
+        height: 0.4rem;
+        width: 10vw;
+
+        border-radius: 20px;
+        background-color: white;
+        pointer-events: none;
+        &:not(:last-child) {
+          margin-bottom: 0.5rem;
+        }
+      }
     }
     .mobile-menu {
       display: flex;
       align-items: center;
       justify-content: space-evenly;
       flex-direction: column;
-      height: 30vh;
-      width: 20vw;
+      height: 45vh;
+      width: 50vw;
       position: fixed;
-      left: 607px;
-      background-color: white;
-      right: 0px;
-      top: 107px;
+      right: 0;
+      top: 20%;
+      background-color: $gunmetal;
+      border: solid black;
       z-index: 2;
-      border-style: solid;
-      font-size: 20px;
-
+      transform-origin: bottom;
+      transition: transform .6s .2s width .5s cubic-bezier(1,-0.16,.6,1.35);
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
+      }
       span {
         text-decoration: none;
         color: white;
