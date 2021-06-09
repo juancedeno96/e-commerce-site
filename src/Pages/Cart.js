@@ -31,17 +31,27 @@ const Cart = (props) => {
   const mappedUserItems = userCart.map((item, i)=>{
     return (
       <div className="cart-item" key={i}>
-        <h1>{item.product_name}</h1>
-        <img src={item.img_url} alt={item.product_name} />
+        <h3>{item.product_name}</h3>
         <h3>X {item.quantity}</h3>
         <h3>total: {item.total}.00</h3>
+        <img src={item.img_url} alt={item.product_name} />
         <Link to ='/cart'
         ><button onClick={()=>deleteItems(item.product_id)}>Delete</button></Link>
       </div>
     )
   })
 
-  return <div>{mappedUserItems}</div>;
+  return <div className='cart'>
+ <div className='cart-container'>
+ {mappedUserItems}
+  
+   </div> 
+<Link to='/checkout'>
+<button>Go to Checkout</button>
+</Link>
+   
+  </div>;
+  
 };
 
 const mapStateToProps = (reduxState) => reduxState.userReducer;

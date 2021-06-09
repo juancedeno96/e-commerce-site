@@ -14,8 +14,7 @@ const { PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 const app = express();
 
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+
 
 massive({
   connectionString: CONNECTION_STRING,

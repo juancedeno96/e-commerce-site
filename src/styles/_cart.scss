@@ -1,0 +1,40 @@
+@import "./variables";
+
+.cart {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+//   overflow: hidden;
+  background-image: linear-gradient(#4ecdc4, #ff6b6b);
+  .cart-container{
+      width: 90%;
+      margin-top: 15%;
+      margin-left: 5%;
+      height: 100%;
+    //   background-color: blue;
+  overflow: scroll;
+
+      .cart-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        left: 5%;
+        top: 5%;
+        height: 35%;
+        width: 90%;
+        background-color: $clear;
+        border-style: solid;
+        img {
+          height: 45%;
+          width: 20%;
+        }
+      }
+  }
+  button{
+      width: 200px;
+      position: relative;
+  }
+
+}
