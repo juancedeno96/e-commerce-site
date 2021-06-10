@@ -22,6 +22,8 @@ const useStyles = makeStyles({
   root: {
     maxWidth: 500,
     margin: "35vh auto",
+    position: 'relative',
+    
   },
   content: {
     display: "flex",
@@ -118,10 +120,10 @@ const CheckoutPage = (props) => {
   };
 
   return (
-    <div>
+    <div className='Checkout'>
       {userTotal.map((tot, i) => {
         return (
-
+         
           <Card className={classes.root} key={i} >
             Total Cost: ${tot.cost}.00
             <CardContent className={classes.content}>
@@ -157,6 +159,7 @@ const CheckoutPage = (props) => {
               </div>
             </CardContent>
           </Card>
+         
         );
       })}
     </div>

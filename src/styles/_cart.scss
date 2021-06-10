@@ -25,10 +25,12 @@
         height: 35%;
         width: 90%;
         background-color: $clear;
-        border-style: solid;
+        
+        border: solid 1px white;
         img {
-          height: 45%;
+          height: 70%;
           width: 20%;
+          border-radius: 10px;
         }
       }
   }
