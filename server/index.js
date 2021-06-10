@@ -2,7 +2,7 @@ require("dotenv").config();
 const massive = require("massive");
 const express = require("express");
 const session = require("express-session");
-const bodyParser = require("body-parser");
+const path = require('path')
 //Controllers
 const authCtrl = require("./controllers/authController");
 const pc = require("./controllers/productController");
@@ -14,6 +14,8 @@ const { PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 const app = express();
 
 app.use(express.json());
+
+
 
 
 massive({
@@ -63,3 +65,9 @@ app.get("/api/cart/:user_id", pc.getUserItems);
 app.delete("/api/delete/:product_id", pc.deleteItem);
 app.delete("/api/delete/:user_id", pc.deleteOrder);
 app.get("/api/total/:user_id", pc.getTotal);
+
+app.use(express.static(__dirname + '/../build'))
+
+app.get('*',(req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'))
+})
